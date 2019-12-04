@@ -2,20 +2,10 @@ package org.testng.reporters;
 
 import org.testng.ITestContext;
 import org.testng.ITestResult;
-import org.testng.TestNG;
 import org.testng.internal.IResultListener2;
 
 /** A very simple <code>ITestListener</code> used by the TestNG runner to find out the exit code. */
 public class ExitCodeListener implements IResultListener2 {
-  private TestNG m_mainRunner;
-
-  public ExitCodeListener() {
-    this(TestNG.getDefault());
-  }
-
-  public ExitCodeListener(TestNG runner) {
-    m_mainRunner = runner;
-  }
 
   @Override
   public void beforeConfiguration(ITestResult tr) {}

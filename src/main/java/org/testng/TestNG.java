@@ -116,8 +116,6 @@ public class TestNG {
   /** The default name of the result's output directory (keep public, used by Eclipse). */
   public static final String DEFAULT_OUTPUTDIR = "test-output";
 
-  private static TestNG m_instance;
-
   private static JCommander m_jCommander;
 
   private List<String> m_commandLineMethods;
@@ -210,8 +208,6 @@ public class TestNG {
   }
 
   private void init(boolean useDefaultListeners) {
-    m_instance = this;
-
     m_useDefaultListeners = useDefaultListeners;
     m_configuration = new Configuration();
   }
@@ -1022,7 +1018,6 @@ public class TestNG {
       }
     }
 
-    m_instance = null;
     m_jCommander = null;
   }
 
@@ -1754,13 +1749,6 @@ public class TestNG {
    */
   public XmlSuite.FailurePolicy getConfigFailurePolicy() {
     return m_configFailurePolicy;
-  }
-
-  // DEPRECATED: to be removed after a major version change
-  /** @deprecated since 5.1 */
-  @Deprecated
-  public static TestNG getDefault() {
-    return m_instance;
   }
 
   private void setConfigurable(IConfigurable c) {
